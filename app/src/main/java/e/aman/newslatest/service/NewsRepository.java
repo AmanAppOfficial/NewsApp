@@ -152,4 +152,28 @@ public class NewsRepository {
         return articles;
     }
 
+    public LiveData<List<Articles>> getTech()
+    {
+        getRetrofitClient().create(NewsApi.class).getCategoryData(
+                "in",
+                Constants.CATEGORY_TECHNOLOGY,
+                API_KEY
+        ).enqueue(new Callback<News>() {
+            @Override
+            public void onResponse(Call<News> call, Response<News> response) {
+
+                List<Articles> newsList = response.body().getArticles();
+                articles.setValue(newsList);
+
+            }
+
+            @Override
+            public void onFailure(Call<News> call, Throwable t) {
+                Log.e("error : " , t.getMessage());
+            }
+        });
+
+        return articles;
+    }
+
 }

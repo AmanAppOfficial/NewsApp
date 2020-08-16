@@ -57,5 +57,14 @@ public class NewsViewModel extends ViewModel
         return liveCoupon;
     }
 
+    public LiveData<List<Articles>> getTech()
+    {
+        if (liveCoupon == null)
+        {
+            liveCoupon = newsRepository.getTech();
+        }
+        return liveCoupon;
+    }
+
 
 }

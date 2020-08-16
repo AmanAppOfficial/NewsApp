@@ -72,6 +72,8 @@ public class SelectionAdapter extends RecyclerView.Adapter<SelectionAdapter.MyVi
             holder.selectionImage.setImageResource(R.drawable.sport);
         else if(position == 4)
             holder.selectionImage.setImageResource(R.drawable.business);
+        else if(position == 5)
+            holder.selectionImage.setImageResource(R.drawable.tech);
 
 
     }
